@@ -1,5 +1,6 @@
 package Main;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +14,7 @@ public class GameField extends JPanel implements ActionListener{
     private static final int MY_CONST = 10;
     private final int SIZE = 650;
     private final int DOT_SIZE = 16;
-    private final int ALL_DOTS = 14;
+    private final int ALL_DOTS = 100;
     private Image dot;
     private Image apple;
     private int apple_X;
@@ -26,8 +27,10 @@ public class GameField extends JPanel implements ActionListener{
     private boolean right = true;
     private boolean up = false;
     private boolean down = false;
-    private boolean inGame = true;
+    private boolean startGame = true;
+    private boolean inGame = false;
     private int point;
+    private boolean pause = false;
 
     public GameField(){
         setBackground(Color.black);
@@ -49,38 +52,60 @@ public class GameField extends JPanel implements ActionListener{
         score();
     }
 
+
+
     public void score() {
-        point = 0;
+        point = 1;
     }
 
     public void createApple() {
-        apple_X = new Random().nextInt(19)*DOT_SIZE;
-        apple_Y = new Random().nextInt(19)*DOT_SIZE;
+        apple_X = new Random().nextInt(35)*DOT_SIZE;
+        apple_Y = new Random().nextInt(35)*DOT_SIZE;
     }
 
 
     public void Load_Texture(){
-        ImageIcon picture_a = new ImageIcon("C:\\Users\\sofiy\\Desktop\\ALL\\Lesson\\Project\\Snake\\apple.png");
+        ImageIcon picture_a = new ImageIcon("resources\\apple.png");
         apple = picture_a.getImage();
-        ImageIcon picture_d = new ImageIcon("C:\\Users\\sofiy\\Desktop\\ALL\\Lesson\\Project\\Snake\\dot.png");
+        ImageIcon picture_d = new ImageIcon("resources\\dot.png");
         dot = picture_d.getImage();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (inGame){
-            g.drawImage(apple,apple_X,apple_Y,this);
-            for (int i = 0; i < A_DOT; i++){
-                g.drawImage(dot,x[i],y[i],this);
-            }
-        } else{
-            String str = "Game Over";
-            g.setColor(Color.CYAN);
-            g.drawString(str,SIZE/2-20,SIZE/2-20);
-            String score = "Score ";
+        if (startGame) {
+            String str = "Start game";
+            g.setColor(Color.GREEN);
+            g.drawString(str, 285, 235);
+            String key = "press Enter";
             g.setColor(Color.WHITE);
-            g.drawString(score + point,SIZE/2-12,SIZE/2);
+            g.drawString(key, 285, 255);
+            String pause = "'Esc' to pause; 'Space' to continue ";
+            g.setColor(Color.WHITE);
+            g.drawString(pause, 230, 275);
+
+            if (inGame) {
+                g.setColor(Color.BLACK);
+                g.fillRect(230,210,285,260);
+                g.drawImage(apple, apple_X, apple_Y, this);
+                for (int i = 0; i < A_DOT; i++) {
+                    g.drawImage(dot, x[i], y[i], this);
+                }
+
+            } else {
+                if (point == 1) {
+                    timer.stop();
+                }
+                else{
+                    String gameOver = "GAME OVER ";
+                    g.drawString(gameOver, 285, 315);
+                    String score = "SCORE : ";
+                    g.setColor(Color.CYAN);
+                    g.drawString( score + (point - 1), 285, 335);
+                    timer.stop();
+                }
+            }
         }
     }
 
@@ -177,6 +202,27 @@ public class GameField extends JPanel implements ActionListener{
                 down = true;
                 left= false;
                 right = false;
+            }
+
+            if ( key == KeyEvent.VK_ESCAPE){
+                timer.stop();
+                pause = true;
+            }
+
+            if ( key == KeyEvent.VK_SPACE){
+                timer.start();
+                pause = false;
+            }
+
+            if ( key == KeyEvent.VK_ENTER && ! inGame){
+                timer.stop();
+                inGame = true;
+                point = 1;
+                UnitGames();
+                left = false;
+                right = true;
+                up = false;
+                down = false;
             }
         }
     }
