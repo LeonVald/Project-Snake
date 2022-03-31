@@ -6,4 +6,4 @@
 
 В стартовом меню описывается главный функционал: 
 
-(https://github.com/LeonVald/Project-Snake/raw/Main/PicturesSt/Menu.png)
+![Image alt](https://github.com/LeonVald/Project-Snake/raw/Main/PicturesSt/Menu.png)
