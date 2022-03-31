@@ -1,2 +1,3 @@
-# Project-Snake
-Project for OVERONE
+# Игра "Змейка"
+
+
