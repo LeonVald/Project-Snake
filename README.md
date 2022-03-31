@@ -6,14 +6,14 @@
 
 В стартовом меню описывается главный функционал: 
 
-![Иллюстрация к проекту](https://github.com/LeonVald/Project-Snake/blob/main/Pictures/StartMenu.PNG)
+![Иллюстрация к проекту1](https://github.com/LeonVald/Project-Snake/blob/main/Pictures/StartMenu.PNG)
 
 Игровой процесс:
 
-https://github.com/LeonVald/Project-Snake/blob/main/Pictures/Game.png
+![Иллюстрация к проекту2](https://github.com/LeonVald/Project-Snake/blob/main/Pictures/Game.png)
 
 
 
 В конце игры указывается итоговое количество собраных очкой и возможность начать игру с начала.
 
-https://github.com/LeonVald/Project-Snake/blob/main/Pictures/GameOver.png
+![Иллюстрация к проекту3](https://github.com/LeonVald/Project-Snake/blob/main/Pictures/GameOver.png)
