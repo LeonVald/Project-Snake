@@ -4,6 +4,6 @@
 
 Змейка ограничена игровым полем. Она не может выйти за его пределы. Также Она может наткнуться на свой собственный хвост.
 
-В стартовом меню описывается функционал: 
+В стартовом меню описывается главный функционал: 
 
-[Image alt](https://github.com/{LeonVald}/{Project-Snake}/raw/{Main}/{path}/StartMenu.png)
+(https://github.com/{LeonVald}/{Project-Snake}/raw/{Main}/{Pictures/}/StartMenu.png)
