@@ -6,4 +6,4 @@
 
 В стартовом меню описывается главный функционал: 
 
-![Image alt](https://github.com/LeomVald/Project-Snake/raw/main/Picture/StartGame.png)
+![Иллюстрация к проекту](https://github.com/LeomVald/Project-Snake/raw/main/Pictures/StartGame.png)
